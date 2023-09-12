@@ -1,4 +1,4 @@
-/*Sql command
+ /*Sql command
 CREATE TABLE todo (id INTEGER, todo TEXT, priority TEXT, status TEXT); 
 INSERT INTO todo (id, todo, priority, status)
 Values (1, "Learn HTML", "HIGH", "TO DO"),
@@ -50,7 +50,7 @@ const convertStatsProperties = (dbObject) => {
 //1st GET todo status API
 app.get("/todos/", async (request, response) => {
   let totalData = null;
-  const getTotalTodoDataQuery = "";
+  let getTotalTodoDataQuery = "";
   const { search_q = "", priority, status } = request.query;
 
   switch (true) {
@@ -122,7 +122,7 @@ app.put("/todos/:todoId/", async (request, response) => {
   }
   const oldTodoIdQuery = `
   SELECT * FROM todo 
-  WHERE id = '${todoId};'`;
+  WHERE id = '${todoId}'`;
   const oldTodo = await db.get(oldTodoIdQuery);
 
   const {
